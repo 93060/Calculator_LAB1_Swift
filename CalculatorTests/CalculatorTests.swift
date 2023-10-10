@@ -10,27 +10,38 @@ import XCTest
 
 final class CalculatorTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testPositiveScenarioForAddCalculation(){
+        XCTAssertEqual(Operations().Add(first: 3, second: 5), 8)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testPositiveScenarioForSubCalculation(){
+        XCTAssertEqual(Operations().Sub(first: 3, second: 5), -2)
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    
+    func testPositiveScenarioForProdCalculation(){
+        XCTAssertEqual(Operations().Multiply(first: 5, second: 5), 25)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testPositiveScenarioForDivCalculation(){
+        XCTAssertEqual(Operations().Divide(first: 10, second: 2), 5)
     }
-
+    
+    func testPositiveScenarioForSinCalculation(){
+        let value = Operations().Sin(first: 5)
+        XCTAssertGreaterThanOrEqual(value, -1)
+        XCTAssertLessThanOrEqual(value, 1)
+    }
+    func testZeroScenarioForDivCalculation(){
+        XCTAssertNil(Operations().Divide(first: 5, second: 0))
+    }
+    
 }
+
+
+
+
+
+
+
+//testZeroScenarioForDivCalculation()
+
